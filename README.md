@@ -20,6 +20,11 @@ If you want to see what you can do, type `make help` in the project root.
     - execute the commands below in the order they appear
         - `sbt assembly` 
         - `java -jar target/scala-2.12/SimpleSearchChallenge-assembly-0.1.jar data/`
+        
+### Dependencies
+Only scalatest is included as a dependency of the project.
+The only extra stuff included in the build is a **plugin** (not a dependency), called [Assembly](https://github.com/sbt/sbt-assembly), which helps generating
+the big jar where all the application is packaged. 
 
 ### Q&A from challenge considerations
 - _What constitutes a word?_ : Every English alphabetical character that matches a `(\w+)` regex expression
@@ -65,3 +70,16 @@ After that, the searches are very fast , provided that for each unique word (or 
     result
   }
 ```
+### Time spent on the challenge
+
+Despite the challenge is planned to be made in 2 to 3 hours, 
+I spent a total of 5 with a ~2 hours rest in between, on Monday. In order to ensure architecture extendability and feature completeness
+I tried to enlarge a bit the time, but I still think there is **a lot** to do and to improve in the test from a software engineering perspective. Not only coding has been done in this test but also choosing for 
+a proper indexation/search strategy.
+
+### Things I would fix if more time was provided (or if I had some more time to work on it)
+- Improve the modules by using instances of classes instead of objects. 
+    - So that I can do proper Dependency Injection
+    - And test more thoroughly via mocking, instead of doing Integration tests.
+- Improve the `Ranker.scala` punctuation strategy, as there are a lot of jumps between `Lists` and `Maps`.
+- Find a way to package _all_ the application without using Assembly directly from `sbt` or `scalac`.
