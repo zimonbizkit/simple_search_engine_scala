@@ -14,7 +14,7 @@ object Ranker {
       .toList
       .sortBy(v => v._2.size).reverse
       .toMap
-      .map { case (k,v) => (k, 100* setPrecision(v.size.toDouble/tokenizedQuery.size.toDouble))}
+      .map { case (k,v) => (k, 100 * setPrecision(v.size.toDouble/tokenizedQuery.size.toDouble))}
   }
   private def setPrecision(rankScore:Double):Double =
     BigDecimal(rankScore)

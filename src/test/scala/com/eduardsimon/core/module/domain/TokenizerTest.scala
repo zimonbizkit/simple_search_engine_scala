@@ -6,7 +6,7 @@ class TokenizerTest extends AnyFlatSpec {
   "Tokenizer" should " parse the same way as the indexer parses words" in {
     assert(
       Tokenizer.tokenize("HEY! WASSAP??? How, are you? 🤪") ==
-        List("hey","wassap","how","are","you","toma")
+        List("hey","wassap","how","are","you")
     )
   }
 

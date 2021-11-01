@@ -4,7 +4,6 @@ import com.eduardsimon.core.module.domain.Indexer.FileReader
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.must.Matchers.{be, noException}
 
-
 class FileReaderTest extends AnyFlatSpec {
   val DATA_FOLDER="data/"
   "FileReader" should "read the filesystem for _valid_ files and return File objects " in {

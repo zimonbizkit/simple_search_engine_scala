@@ -25,10 +25,6 @@ object ApplicationService {
         case Success (partialMatchScan) => Ranker.rank(tokenizedQuery,partialMatchScan)
         case _ => Map[String,Double]()
       }
-
-
-
     }
   }
-
 }
