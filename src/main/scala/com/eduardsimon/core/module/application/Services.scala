@@ -6,10 +6,9 @@ import scala.util.{Success, Try}
 
 object ApplicationService {
   var invertedIndex : Map[String, Set[String]] = Map()
-  var fileContents : Map[String ,List[String]] = Map()
   object IndexData {
     def apply(folder:String): Unit = {
-      fileContents = Indexer.FileReader.readFiles(folder,Indexer.okFileExtensions)
+      val fileContents = Indexer.FileReader.readFiles(folder,Indexer.okFileExtensions)
       invertedIndex = Indexer.InvertedIndex(fileContents)
     }
   }
@@ -23,8 +22,7 @@ object ApplicationService {
       } match {
         case Success (partialMatchScan) => Ranker.rank(
           tokenizedQuery,
-          partialMatchScan,
-          fileContents.keys.toList
+          partialMatchScan
         )
         case _ => Map[String,Double]()
       }

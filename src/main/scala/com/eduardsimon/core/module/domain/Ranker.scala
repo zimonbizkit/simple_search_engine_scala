@@ -5,8 +5,7 @@ object Ranker {
   val RANKER_PRECISION= 2
   def rank(
             tokenizedQuery: List[String],
-            partialMatchScan:List[Set[String]],
-            indexedFilesList:List[String]
+            partialMatchScan:List[Set[String]]
           ) : Map[String,Double] = {
     if (partialMatchScan.isEmpty) {
       Map[String,Double]()
@@ -18,7 +17,7 @@ object Ranker {
       .toList
       .sortBy(v => v._2.size).reverse
       .toMap
-      .map { case (k,v) => (k, 100 * setPrecision(v.size.toDouble/indexedFilesList.size.toDouble))}
+      .map { case (k,v) => (k, 100 * setPrecision(v.size.toDouble/tokenizedQuery.size.toDouble))}
   }
   private def setPrecision(rankScore:Double):Double =
     BigDecimal(rankScore)

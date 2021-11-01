@@ -12,7 +12,7 @@ class RankerTest extends AnyFlatSpec {
       Set("file1.txt"),
       Set("file1.txt")
     )
-    val result = Ranker.rank(tokenizedQuery,partialMatchScan,fileList)
+    val result = Ranker.rank(tokenizedQuery,partialMatchScan)
     assert(
       result == Map(
         "file1.txt" -> 100.0,
@@ -29,7 +29,7 @@ class RankerTest extends AnyFlatSpec {
       Set("file2.txt","file3.txt"),
       Set("file1.txt")
     )
-    val result = Ranker.rank(tokenizedQuery,partialMatchScan,fileList)
+    val result = Ranker.rank(tokenizedQuery,partialMatchScan)
     assert(
       result == Map(
         "file1.txt" -> 67.0,
@@ -43,7 +43,7 @@ class RankerTest extends AnyFlatSpec {
     val tokenizedQuery   = List("hola","que","tal")
     val partialMatchScan = List.empty
 
-    val result = Ranker.rank(tokenizedQuery,partialMatchScan,fileList)
+    val result = Ranker.rank(tokenizedQuery,partialMatchScan)
 
     assert(result == Map.empty)
   }
@@ -53,7 +53,7 @@ class RankerTest extends AnyFlatSpec {
     val partialMatchScan = List(
       Set("file1.txt")
     )
-    val result = Ranker.rank(tokenizedQuery, partialMatchScan,fileList).values.toList(0).toString
+    val result = Ranker.rank(tokenizedQuery, partialMatchScan).values.toList(0).toString
     assert(
       result.split("\\.")(1).length == 1
     )

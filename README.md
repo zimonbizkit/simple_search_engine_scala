@@ -23,7 +23,7 @@ If you want to see what you can do, type `make help` in the project root.
 
 ### Q&A from challenge considerations
 - _What constitutes a word?_ : Every English alphabetical character that matches a `(\w+)` regex expression
-- _What constitutes two words being equal?_ : Two lowercased words with the same **exact** lettering are considered the same (no stemmization).
+- _What constitutes two words being equal?_ : Two lowercased words with the same **exact** lettering are considered the same (no word stemming).
 - _What is the ranking scoring mechanism?_ : 
     -  **for a 100% match** : any **word** or **sentence** entered, that appear either **contiguously** or **not contiguously**.
     -  **for a match less than 100%** : the following formula is applied `score% = (100 * numberOfCoincidentDocuments/numberOfIndexedDocuments)`
@@ -32,8 +32,7 @@ If you want to see what you can do, type `make help` in the project root.
 ### Reasonings behind architecture
 - Provided the time constraint, the structure of the project tries to mimic Hexagonal Architecture, although not in a very strict way. 
 The application is small and the folder structure is a stepping stone for further evolutions.
-- There are Unit and Integration tests on the project. They all run at once without any suite differentiation at test time,
- but they are divided in case we want to have different configs for test suite. 
+- There are Unit and Integration tests on the project. They all run at once without any suite differentiation at test time. 
 
 ### Inverted index for fast in-memory searches
 As there might be the possibility of storing millions of words from various files, an in-memory [Inverted Index](https://www.geeksforgeeks.org/inverted-index/) structure
