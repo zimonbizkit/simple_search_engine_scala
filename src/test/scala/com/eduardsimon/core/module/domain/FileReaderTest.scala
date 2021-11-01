@@ -1,7 +1,6 @@
-package com.eduardsimon.core.module.integration.domain
+package com.eduardsimon.core.module.domain
 
-import com.eduardsimon.core.module.unit.domain.Indexer
-import com.eduardsimon.core.module.unit.domain.Indexer.FileReader
+import Indexer.FileReader
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.must.Matchers.{be, noException}
 

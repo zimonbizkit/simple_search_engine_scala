@@ -1,4 +1,4 @@
-package com.eduardsimon.core.module.unit.domain
+package com.eduardsimon.core.module.domain
 
 import org.scalatest.flatspec.AnyFlatSpec
 

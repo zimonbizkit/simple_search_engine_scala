@@ -33,8 +33,7 @@ If you want to see what you can do, type `make help` in the project root.
 - Provided the time constraint, the structure of the project tries to mimic Hexagonal Architecture, although not in a very strict way. 
 The application is small and the folder structure is a stepping stone for further evolutions.
 - There are Unit and Integration tests on the project. They all run at once without any suite differentiation at test time,
- but they are divided in case we want to have different configs for test suite.
-- Modularization  
+ but they are divided in case we want to have different configs for test suite. 
 
 ### Inverted index for fast in-memory searches
 As there might be the possibility of storing millions of words from various files, an in-memory [Inverted Index](https://www.geeksforgeeks.org/inverted-index/) structure

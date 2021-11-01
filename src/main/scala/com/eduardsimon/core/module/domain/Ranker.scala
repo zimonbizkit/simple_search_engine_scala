@@ -1,4 +1,4 @@
-package com.eduardsimon.core.module.unit.domain
+package com.eduardsimon.core.module.domain
 
 object Ranker {
   // FIXME please lets review this

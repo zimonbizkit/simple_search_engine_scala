@@ -1,6 +1,6 @@
 package com.eduardsimon.core.infrastructure
 
-import com.eduardsimon.core.module.integration.application.ApplicationService
+import com.eduardsimon.core.module.application.ApplicationService
 
 object Initializer extends App{
 

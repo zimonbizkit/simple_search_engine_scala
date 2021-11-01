@@ -1,6 +1,6 @@
-package com.eduardsimon.core.module.integration.application
+package com.eduardsimon.core.module.application
 
-import com.eduardsimon.core.module.unit.domain.{Indexer, Ranker, Tokenizer}
+import com.eduardsimon.core.module.domain.{Indexer, Ranker, Tokenizer}
 
 import scala.util.{Success, Try}
 

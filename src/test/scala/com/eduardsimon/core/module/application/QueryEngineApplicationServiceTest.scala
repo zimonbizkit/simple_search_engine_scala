@@ -1,4 +1,4 @@
-package com.eduardsimon.core.module.integration.application
+package com.eduardsimon.core.module.application
 
 import org.scalatest.flatspec.AnyFlatSpec
 
