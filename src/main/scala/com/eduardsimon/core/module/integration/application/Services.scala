@@ -1,16 +1,15 @@
-package com.eduardsimon.core.module.application
+package com.eduardsimon.core.module.integration.application
 
-import com.eduardsimon.core.module.domain.{Indexer, Ranker, Tokenizer}
+import com.eduardsimon.core.module.unit.domain.{Indexer, Ranker, Tokenizer}
 
 import scala.util.{Success, Try}
 
 object ApplicationService {
-
   var invertedIndex : Map[String, Set[String]] = Map()
-
+  var fileContents : Map[String ,List[String]] = Map()
   object IndexData {
     def apply(folder:String): Unit = {
-      val fileContents = Indexer.FileReader.readFiles(folder,Indexer.okFileExtensions)
+      fileContents = Indexer.FileReader.readFiles(folder,Indexer.okFileExtensions)
       invertedIndex = Indexer.InvertedIndex(fileContents)
     }
   }
@@ -22,7 +21,11 @@ object ApplicationService {
       Try {
         tokenizedQuery.map(invertedIndex)
       } match {
-        case Success (partialMatchScan) => Ranker.rank(tokenizedQuery,partialMatchScan)
+        case Success (partialMatchScan) => Ranker.rank(
+          tokenizedQuery,
+          partialMatchScan,
+          fileContents.keys.toList
+        )
         case _ => Map[String,Double]()
       }
     }

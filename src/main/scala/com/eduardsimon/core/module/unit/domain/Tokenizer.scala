@@ -1,5 +1,4 @@
-package com.eduardsimon.core.module.domain
-
+package com.eduardsimon.core.module.unit.domain
 
 object Tokenizer {
   val SEPARATOR = " "
@@ -7,5 +6,7 @@ object Tokenizer {
   def tokenize(string:String): List[String] = Indexer
     .parse(string)
     .mkString(SEPARATOR)
-    .split(SEPARATOR).toList
+    .split(SEPARATOR)
+    .toList
+    .distinct
 }

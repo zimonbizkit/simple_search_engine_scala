@@ -1,4 +1,4 @@
-package com.eduardsimon.core.module.domain
+package com.eduardsimon.core.module.unit.domain
 
 import org.scalatest.flatspec.AnyFlatSpec
 
@@ -10,10 +10,10 @@ class TokenizerTest extends AnyFlatSpec {
     )
   }
 
-  "Tokenizer" should "accept repeated words as input" in {
+  "Tokenizer" should "collapse repeated words from input" in {
     assert(
       Tokenizer.tokenize("HEY! WASSAP??? How, are you? 🤪toma toma") ==
-        List("hey","wassap","how","are","you","toma","toma")
+        List("hey","wassap","how","are","you","toma")
     )
   }
 }

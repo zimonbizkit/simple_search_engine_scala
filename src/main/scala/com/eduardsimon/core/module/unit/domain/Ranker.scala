@@ -1,9 +1,13 @@
-package com.eduardsimon.core.module.domain
+package com.eduardsimon.core.module.unit.domain
 
 object Ranker {
   // FIXME please lets review this
   val RANKER_PRECISION= 2
-  def rank(tokenizedQuery: List[String],partialMatchScan:List[Set[String]]) : Map[String,Double] = {
+  def rank(
+            tokenizedQuery: List[String],
+            partialMatchScan:List[Set[String]],
+            indexedFilesList:List[String]
+          ) : Map[String,Double] = {
     if (partialMatchScan.isEmpty) {
       Map[String,Double]()
     }
@@ -14,7 +18,7 @@ object Ranker {
       .toList
       .sortBy(v => v._2.size).reverse
       .toMap
-      .map { case (k,v) => (k, 100 * setPrecision(v.size.toDouble/tokenizedQuery.size.toDouble))}
+      .map { case (k,v) => (k, 100 * setPrecision(v.size.toDouble/indexedFilesList.size.toDouble))}
   }
   private def setPrecision(rankScore:Double):Double =
     BigDecimal(rankScore)

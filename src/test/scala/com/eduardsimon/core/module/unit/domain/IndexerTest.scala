@@ -1,6 +1,6 @@
-package com.eduardsimon.core.module.domain
+package com.eduardsimon.core.module.unit.domain
 
-  import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.flatspec.AnyFlatSpec
 
 class IndexerTest extends AnyFlatSpec {
   "The parser " should " get only english trimmed words as indicated by regex metacharacter" in {

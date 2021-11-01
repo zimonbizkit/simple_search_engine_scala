@@ -1,7 +1,6 @@
-package com.eduardsimon.core.module.domain
+package com.eduardsimon.core.module.unit.domain
 
-
-import com.eduardsimon.core.module.domain.Indexer.InvertedIndex
+import Indexer.InvertedIndex
 import org.scalatest.flatspec.AnyFlatSpec
 
 class InvertedIndexTest extends AnyFlatSpec {

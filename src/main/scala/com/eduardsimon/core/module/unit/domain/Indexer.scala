@@ -1,4 +1,4 @@
-package com.eduardsimon.core.module.domain
+package com.eduardsimon.core.module.unit.domain
 
 import java.io.File
 
