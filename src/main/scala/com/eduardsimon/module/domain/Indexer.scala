@@ -2,6 +2,8 @@ package com.eduardsimon.module.domain
 
 import java.io.File
 
+import scala.io.Source
+
 object Indexer {
 
   val WORD = raw"(\w+)".r
@@ -9,11 +11,11 @@ object Indexer {
   object InvertedIndex {
     import scala.io.Source
 
-    def apply(files: List[File]): Map[String, Set[File]] = {
-      var i = Map[String, Set[File]]() withDefaultValue Set.empty
-      files.foreach {
-        f => Source.fromFile(f).getLines flatMap parse foreach {
-          w => i = i + (w -> (i(w) + f))
+    def apply(contents: Map[String,List[String]]): Map[String, Set[String]] = {
+      var i = Map[String, Set[String]]() withDefaultValue Set.empty
+      contents.foreach {
+        f => f._2 flatMap parse foreach {
+          w => i = i + (w -> (i(w) + f._1))
         }
       }
       i
@@ -24,16 +26,18 @@ object Indexer {
 
   object FileReader {
     val okFileExtensions = List("txt")
-    def getListOfFiles(dir: String, validExtensions: List[String]): List[File] = {
+    def getListOfFiles(dir: String, validExtensions: List[String]): Map[String ,List[String]] = {
       val d = new File(dir)
       if (d.exists && d.isDirectory) {
         d.listFiles.filter {
           file =>
             file.isFile &&
               validExtensions.exists(file.getName.endsWith(_))
-        }.toList
+        }.map {
+          f => (f.getName , Source.fromFile(f).getLines().toList)
+        }.toMap
       } else {
-        List[File]()
+        Map[String ,List[String]]()
       }
     }
   }

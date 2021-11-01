@@ -9,12 +9,12 @@ class FileReaderTest extends AnyFlatSpec {
   val DATA_FOLDER="data/"
   "FileReader" should "read the filesystem for _valid_ files and return File objects " in {
     val listOfFiles = FileReader.getListOfFiles(DATA_FOLDER,FileReader.okFileExtensions)
-    assert(listOfFiles.map(f => f.getName) == List("file1.txt","horatio.txt"))
+    assert(listOfFiles.map(f => f._1) == List("file1.txt","horatio.txt"))
   }
 
   "FileReader" should "be decoupled from file parsing" in {
     val listOfFiles = FileReader.getListOfFiles(DATA_FOLDER,List("pdf"))
-    assert(listOfFiles.map(f => f.getName) == List("horatiopdf.pdf"))
+    assert(listOfFiles.map(f => f._1) == List("horatiopdf.pdf"))
   }
 
   "FileReader" should "not fail when no files could be parsed" in {
