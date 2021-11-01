@@ -1,8 +1,6 @@
-package com.eduardsimon.module.domain
+package com.eduardsimon.core.module.domain
 
-  import org.scalatest._
   import org.scalatest.flatspec.AnyFlatSpec
-  import org.scalatest.matchers.should.Matchers.convertToAnyShouldWrapper
 
 class IndexerTest extends AnyFlatSpec {
   "The parser " should " get only english trimmed words as indicated by regex metacharacter" in {
@@ -19,11 +17,11 @@ class IndexerTest extends AnyFlatSpec {
   }
 
   "The parser " should " not crash if there are no valid words" in {
-    val cleanableString ="""
+    val impossibleString ="""
        ·$%&/%$· 😀 🚀$·%&/()&()/&&/()/()=/*^¨¨:
        |""".stripMargin
 
-    assert(Indexer.parse(cleanableString).toList.isEmpty)
+    assert(Indexer.parse(impossibleString).toList.isEmpty)
   }
   "The parser " should "lowercase the words " in {
     assert(Indexer.parse("HEY WHATS UP?!").toList == List("hey","whats","up"))

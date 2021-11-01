@@ -1,9 +1,7 @@
-package com.eduardsimon.module.domain
+package com.eduardsimon.core.module.domain
 
-import java.io.{File, PrintWriter}
-import java.nio.file.{Files, Paths}
 
-import com.eduardsimon.module.domain.Indexer.InvertedIndex
+import com.eduardsimon.core.module.domain.Indexer.InvertedIndex
 import org.scalatest.flatspec.AnyFlatSpec
 
 class InvertedIndexTest extends AnyFlatSpec {
