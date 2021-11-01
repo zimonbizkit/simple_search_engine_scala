@@ -63,4 +63,14 @@ class RankerTest extends AnyFlatSpec {
       )
     )
   }
+  "Ranker" should " return coincidence percentage with one decimal" in {
+    val tokenizedQuery   = List("hola","que","tal")
+    val partialMatchScan = List(
+      Set("file1.txt")
+    )
+    val result = Ranker.rank(tokenizedQuery, partialMatchScan).values.toList(0).toString
+    assert(
+      result.split("\\.")(1).length == 1
+    )
+  }
 }
