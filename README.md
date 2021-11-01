@@ -26,7 +26,7 @@ If you want to see what you can do, type `make help` in the project root.
 - _What constitutes two words being equal?_ : Two lowercased words with the same **exact** lettering are considered the same (no word stemming).
 - _What is the ranking scoring mechanism?_ : 
     -  **for a 100% match** : any **word** or **sentence** entered, that appear either **contiguously** or **not contiguously**.
-    -  **for a match less than 100%** : the following formula is applied `score% = (100 * numberOfCoincidentDocuments/numberOfIndexedDocuments)`
+    -  **for a match less than 100%** : score% = (100 * numberOfCoincidentDocuments/numberOfWordsInTheQuery)
     
 
 ### Reasonings behind architecture
