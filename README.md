@@ -1,5 +1,5 @@
 # Simple Search Engine Challenge
-The approach to solving the backend coding exercise is done in the [Scala](https://scala-lang.org/) programming language.
+This approach of a simple search engine is done in the [Scala](https://scala-lang.org/) programming language.
 
 ### Requirements
 This test assumes that you have 
